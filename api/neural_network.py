@@ -68,6 +68,7 @@ class neural_network:
 		model.save("working_model.h5")
 
 	def load_img(self, file_name):
+		print(file_name)
 		img = load_img(file_name, color_mode="grayscale", target_size=(28,28))
 		img = img_to_array(img)
 		img = abs(img-255)
