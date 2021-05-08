@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+	<form id="inputImage" method="POST" action="{{ url_for('predict') }}">
+		<input type="text" class="form-control" id="inputImgId" name="inputImg" placeholder="Image">
+		<button type="submit" class="btn btn-success btn-block submit" id="submit">Submit</button>
+	</form>
+{% endblock %}
