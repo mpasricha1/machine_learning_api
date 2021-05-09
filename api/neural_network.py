@@ -80,6 +80,8 @@ class neural_network:
 		_, acc = model.evaluate(test_x, test_y, verbose=1)
 		print('> %.3f' % (acc * 100.0))
 
+		return '> %.3f' % (acc * 100.0)
+
 	def predict(self, file_name):
 		img = self.load_img(file_name)
 		model = load_model('working_model.h5')

@@ -18,6 +18,10 @@ def predict():
 		result = neural_network.predict('newImg.png')
 		print(types[result])
 
-		return {'type': types[result]} 
+		return {'type': types[result]};
 
-	return "nothing here yet"
+	return "nothing here yet";
+
+@app.route("/api/evaluate", methods=['GET'])
+def evaluate(); 
+	return {'score': neural_network.evaluate_model()};  
