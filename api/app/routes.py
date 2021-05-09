@@ -24,4 +24,4 @@ def predict():
 
 @app.route("/api/evaluate", methods=['GET'])
 def evaluate():
-	return {'score': neural_network.evaluate_model()};  
+	return jsonify({'score': neural_network.evaluate_model()});  
