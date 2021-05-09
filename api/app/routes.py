@@ -13,7 +13,7 @@ types = ['T-Shirt', 'Pants', 'Pullover', 'Dress', 'Coat', 'Sandel'
 def predict():
 	if request.method == "POST":
 		print("In Post")
-		r = request.json('imgUrl')
+		r = request.json['imgUrl']
 		print(r)
 		with open('newImg.png', 'wb') as f:
 			f.write(r.content)
