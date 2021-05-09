@@ -23,5 +23,5 @@ def predict():
 	return "nothing here yet";
 
 @app.route("/api/evaluate", methods=['GET'])
-def evaluate(); 
+def evaluate():
 	return {'score': neural_network.evaluate_model()};  
