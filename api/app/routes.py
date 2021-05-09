@@ -12,8 +12,8 @@ types = ['T-Shirt', 'Pants', 'Pullover', 'Dress', 'Coat', 'Sandel'
 @app.route('/api/predict', methods=['GET', "POST"])
 def predict():
 	if request.method == "POST":
-		print("In Post")
-		r = request.json['imgUrl']
+		print(request.json['url'])
+		r = requests.get(request.json['url'])
 		print(r)
 		with open('newImg.png', 'wb') as f:
 			f.write(r.content)
