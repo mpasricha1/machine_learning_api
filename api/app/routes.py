@@ -13,10 +13,10 @@ types = ['T-Shirt', 'Pants', 'Pullover', 'Dress', 'Coat', 'Sandel'
 def predict():
 	if request.method == "POST":
 		print("In Post")
-		r = requests.get(request.get_json())
+		r = request.json('imgUrl')
 		print(r)
-		# with open('newImg.png', 'wb') as f:
-		# 	f.write(r.content)
+		with open('newImg.png', 'wb') as f:
+			f.write(r.content)
 		result = neural_network.predict('newImg.png')
 		print(types[result])
 
