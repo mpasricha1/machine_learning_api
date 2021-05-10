@@ -2,10 +2,7 @@ from keras.datasets import fashion_mnist
 from tensorflow.keras import layers
 from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Conv2D
-from tensorflow.keras.layers import MaxPooling2D
-from tensorflow.keras.layers import Dense 
-from tensorflow.keras.layers import Flatten
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Dense, Flatten, Dropout, InputLayer
 from tensorflow.keras.optimizers import SGD
 from keras.preprocessing.image import load_img
 from keras.preprocessing.image import img_to_array
@@ -37,12 +34,21 @@ class neural_network:
 
 	def define_model(self):
 		model = Sequential()
-		model.add(Conv2D(32, 3, padding='same', activation='relu', kernel_initializer="he_uniform", input_shape=(28,28,1)))
+		model.add(Conv2D(32, 3, padding='same', strides=(1,1), activation='relu', kernel_initializer="he_uniform", input_shape=(28,28,1)))
+
+		model.add(Conv2D(64, 3, padding='same', strides=(1,1), activation='relu', kernel_initializer="he_uniform"))
 		model.add(MaxPooling2D(pool_size=2))
-		model.add(Conv2D(64, 3, padding='same', activation='relu', kernel_initializer="he_uniform"))
+		model.add(Dropout(0.25))
+
+		model.add(Conv2D(64, 3, padding='same', strides=(1,1), activation='relu', kernel_initializer="he_uniform"))
 		model.add(MaxPooling2D(pool_size=2))
+		model.add(Dropout(0.25))
+
 		model.add(Flatten())
+		model.add(Dense(units=200, activation='relu', kernel_initializer="he_uniform"))
+		model.add(Dropout(0.25))
 		model.add(Dense(units=100, activation='relu', kernel_initializer="he_uniform"))
+		model.add(Dropout(0.25))
 		model.add(Dense(units=10, activation='softmax'))
 
 		#opt = SGD(lr=0.01, momentum=0.9)

@@ -15,9 +15,9 @@ nn = neural_network()
 
 imgUrl =  {
 	# Pants
-	# 'url': 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.VtVGA6XlaNLrHY7nilOy_gHaJ4%26pid%3DApi&f=1'
+	#'url': 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.VtVGA6XlaNLrHY7nilOy_gHaJ4%26pid%3DApi&f=1'
 	# Tshirt
-	#'url': 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.jze5Ws0EmW4BN4_CAFUCfgHaHa%26pid%3DApi&f=1'
+	'url': 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.jze5Ws0EmW4BN4_CAFUCfgHaHa%26pid%3DApi&f=1'
 	#Pullover
 	#'url': 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.oIeQF3F9BBUWgUrRFkCuYAHaHa%26pid%3DApi&f=1'
 	#Coat
@@ -25,5 +25,5 @@ imgUrl =  {
 	}
 
 
-r = requests.post("http://3.141.18.55/api/predict", json=imgUrl).json()
+r = requests.post("http://localhost:3000/api/predict", json=imgUrl).json()
 print(r)

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 // import Header from './components/Header';
 import Banner from './components/Banner';
 import {Header, Text} from './components/ContentBox';
-import axios from 'axios';
+import {Input, TextArea, FormBtn} from './components/Form';
 import * as MainText from './utils/text';
 import { Col, Row, Container } from "./components/Grid";
 
@@ -10,10 +10,10 @@ import { Col, Row, Container } from "./components/Grid";
 function App(){
   return (
     <>
-      <Container>
+      <Container fluid>
         <Row>
           <Col size = 'md-3'>
-
+            <Header size='5' hText='Current Model Accuracy'/>
           </Col>
           <Col size = 'md-9'>
             <Banner />
@@ -53,6 +53,12 @@ function App(){
             </Row>
             <Row>
               <Text text={MainText.tryText} / >
+            </Row>
+            <Row>
+              <form>
+                <Input name='url' placeholder='Image URL'/>
+                <FormBtn>Submit</FormBtn>
+              </form>
             </Row>
           </Col>
         </Row>
