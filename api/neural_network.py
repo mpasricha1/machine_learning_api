@@ -35,7 +35,7 @@ class neural_network:
 	def define_model(self):
 		model = Sequential()
 		model.add(Conv2D(32, 3, padding='same', strides=(1,1), activation='relu', kernel_initializer="he_uniform", input_shape=(28,28,1)))
-
+		
 		model.add(Conv2D(64, 3, padding='same', strides=(1,1), activation='relu', kernel_initializer="he_uniform"))
 		model.add(MaxPooling2D(pool_size=2))
 		model.add(Dropout(0.25))
@@ -66,7 +66,7 @@ class neural_network:
 
 		model.fit(train_x, train_y, epochs=10, batch_size=64, verbose=1, shuffle=True)
 
-		model.save("working_model.h5")
+		model.save("test_model.h5")
 
 	def load_img(self, file_name):
 		img = load_img(file_name, color_mode="grayscale", target_size=(28,28))

@@ -18,7 +18,10 @@ def predict():
 		result = neural_network.predict('newImg.png')
 		print(types[result])
 
-		return {'type': types[result]};
+		response = jsonify({'type': types[result]})
+		response.headers.add('Access-Control-Allow-Origin', '*')
+
+		return response
 
 	return "nothing here yet";
 
