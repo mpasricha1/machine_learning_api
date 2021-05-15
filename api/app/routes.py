@@ -12,7 +12,12 @@ types = ['T-Shirt', 'Pants', 'Pullover', 'Dress', 'Coat', 'Sandel'
 @app.route('/api/predict', methods=['GET', "POST"])
 def predict():
 	if request.method == "POST":
-		r = requests.get(request.json['url'])
+		if request.form:
+			url = request.form['url']
+		else:
+			url = request.json['url']
+
+		r = requests.get(url)
 		with open('newImg.png', 'wb') as f:
 			f.write(r.content)
 		result = neural_network.predict('newImg.png')
