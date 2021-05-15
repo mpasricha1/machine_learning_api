@@ -13,7 +13,7 @@ types = ['T-Shirt', 'Pants', 'Pullover', 'Dress', 'Coat', 'Sandel'
 def predict():
 	if request.method == "POST":
 		if request.form:
-			url = request.form.get['url']
+			url = request.form.get('url')
 		else:
 			url = request.json['url']
 
